@@ -1,9 +1,12 @@
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import time
 
 import pandas as pd
 
 def Graph_SubPlots2():
+    start_time = time.time()
+
     # read in volcano database data
     df = pd.read_csv(
         "https://raw.githubusercontent.com/plotly/datasets/master/volcano_db.csv",
@@ -82,4 +85,8 @@ def Graph_SubPlots2():
 
     fig.update_layout(
         title='Mixed Sub Plots')
+
+    end_time = round(time.time() - start_time, 3)
+    print(str(end_time) + ' seconds Graphing data for Graph_SubPlots2')
+
     fig.show()
